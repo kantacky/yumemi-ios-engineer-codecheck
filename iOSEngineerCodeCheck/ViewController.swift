@@ -10,9 +10,9 @@ import UIKit
 
 class ViewController: UITableViewController, UISearchBarDelegate {
 
-    @IBOutlet weak var SchBr: UISearchBar!
+    @IBOutlet weak var SearchBar: UISearchBar!
 
-    var repo: [[String: Any]]=[]
+    var repo: [[String: Any]] = []
 
     var task: URLSessionTask?
     var word: String!
@@ -22,8 +22,8 @@ class ViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        SchBr.text = "GitHubのリポジトリを検索できるよー"
-        SchBr.delegate = self
+        SearchBar.text = "GitHubのリポジトリを検索できるよー"
+        SearchBar.delegate = self
     }
 
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
@@ -57,7 +57,7 @@ class ViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Detail"{
+        if segue.identifier == "Detail" {
             let dtl = segue.destination as! ViewController2
             dtl.vc1 = self
         }
