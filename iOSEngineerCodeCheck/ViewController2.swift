@@ -37,7 +37,6 @@ class ViewController2: UIViewController {
     }
     
     func getImage(){
-
         let repo = vc1.repo[vc1.idx]
 
         TitleLabel.text = repo["full_name"] as? String
