@@ -27,7 +27,7 @@ class ViewController: UITableViewController, UISearchBarDelegate {
     }
 
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        // ↓こうすれば初期のテキストを消せる
+        // Remove the pre-filled text
         searchBar.text = ""
         return true
     }
@@ -51,7 +51,7 @@ class ViewController: UITableViewController, UISearchBarDelegate {
                     }
                 }
             }
-            // これ呼ばなきゃリストが更新されません
+            // Renew the list
             task?.resume()
         }
     }
@@ -77,7 +77,7 @@ class ViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // 画面遷移時に呼ばれる
+        // On the screen transition
         idx = indexPath.row
         performSegue(withIdentifier: "Detail", sender: self)
     }
