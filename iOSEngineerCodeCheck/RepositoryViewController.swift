@@ -40,8 +40,9 @@ class RepositoryViewController: UIViewController {
         TitleLabel.text = repo["full_name"] as? String
 
         if let owner = repo["owner"] as? [String: Any],
-           let imgURL = owner["avatar_url"] as? String {
-            task = URLSession.shared.dataTask(with: URL(string: imgURL)!) { (data, res, err) in
+           let imgURL = owner["avatar_url"] as? String,
+           let url = URL(string: imgURL) {
+            task = URLSession.shared.dataTask(with: url) { (data, res, err) in
                 if let data = data,
                    let img = UIImage(data: data) {
                     DispatchQueue.main.async {

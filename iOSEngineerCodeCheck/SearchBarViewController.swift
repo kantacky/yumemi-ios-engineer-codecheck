@@ -16,7 +16,7 @@ class SearchBarViewController: UITableViewController, UISearchBarDelegate {
 
     var task: URLSessionTask?
     var word: String!
-    var url: String!
+    var endpointUrl: String!
     var index: Int!
 
     override func viewDidLoad() {
@@ -40,14 +40,16 @@ class SearchBarViewController: UITableViewController, UISearchBarDelegate {
         word = searchBar.text ?? ""
         
         if word.count != 0 {
-            url = "https://api.github.com/search/repositories?q=\(word ?? "")"
-            task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, res, err) in
-                if let data = data,
-                   let obj = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-                   let items = obj["items"] as? [[String: Any]] {
-                    self.repositories = items
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
+            endpointUrl = "https://api.github.com/search/repositories?q=\(word ?? "")"
+            if let url = URL(string: endpointUrl) {
+                task = URLSession.shared.dataTask(with: url) { (data, res, err) in
+                    if let data = data,
+                       let obj = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+                       let items = obj["items"] as? [[String: Any]] {
+                        self.repositories = items
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
                     }
                 }
             }
@@ -57,8 +59,8 @@ class SearchBarViewController: UITableViewController, UISearchBarDelegate {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Detail" {
-            let dtl = segue.destination as! RepositoryViewController
+        if segue.identifier == "Detail",
+           let dtl = segue.destination as? RepositoryViewController {
             dtl.searchBarViewController = self
         }
     }
