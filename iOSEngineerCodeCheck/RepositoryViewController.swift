@@ -33,7 +33,7 @@ class RepositoryViewController: UIViewController {
         IssuesLabel.text = "\(repo["open_issues_count"] as? Int ?? 0) open issues"
         getImage()
     }
-    
+
     func getImage() {
         let repo = searchBarViewController.repositories[searchBarViewController.index]
 
@@ -42,9 +42,11 @@ class RepositoryViewController: UIViewController {
         if let owner = repo["owner"] as? [String: Any],
            let imgURL = owner["avatar_url"] as? String {
             task = URLSession.shared.dataTask(with: URL(string: imgURL)!) { (data, res, err) in
-                let img = UIImage(data: data!)!
-                DispatchQueue.main.async {
-                    self.ImageView.image = img
+                if let data = data,
+                   let img = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self.ImageView.image = img
+                    }
                 }
             }
 

@@ -37,12 +37,13 @@ class SearchBarViewController: UITableViewController, UISearchBarDelegate {
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        word = searchBar.text!
+        word = searchBar.text ?? ""
         
         if word.count != 0 {
-            url = "https://api.github.com/search/repositories?q=\(word!)"
+            url = "https://api.github.com/search/repositories?q=\(word ?? "")"
             task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, res, err) in
-                if let obj = try! JSONSerialization.jsonObject(with: data!) as? [String: Any],
+                if let data = data,
+                   let obj = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
                    let items = obj["items"] as? [[String: Any]] {
                     self.repositories = items
                     DispatchQueue.main.async {
@@ -54,18 +55,18 @@ class SearchBarViewController: UITableViewController, UISearchBarDelegate {
             task?.resume()
         }
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Detail" {
             let dtl = segue.destination as! RepositoryViewController
             dtl.searchBarViewController = self
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repositories.count
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let repository = repositories[indexPath.row]
@@ -74,7 +75,7 @@ class SearchBarViewController: UITableViewController, UISearchBarDelegate {
         cell.tag = indexPath.row
         return cell
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // On the screen transition
         index = indexPath.row
