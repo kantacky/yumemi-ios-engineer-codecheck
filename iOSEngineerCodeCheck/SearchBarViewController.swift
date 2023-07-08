@@ -15,7 +15,7 @@ class SearchBarViewController: UITableViewController, UISearchBarDelegate {
     var repositories: [[String: Any]] = []
 
     var task: URLSessionTask?
-    var word: String!
+    var word: String?
     var endpointUrl: String!
     var index: Int!
 
@@ -37,10 +37,11 @@ class SearchBarViewController: UITableViewController, UISearchBarDelegate {
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        word = searchBar.text ?? ""
+        word = searchBar.text
         
-        if word.count != 0 {
-            endpointUrl = "https://api.github.com/search/repositories?q=\(word ?? "")"
+        if let word = word,
+           word.count != 0 {
+            endpointUrl = "https://api.github.com/search/repositories?q=\(word)"
             if let url = URL(string: endpointUrl) {
                 task = URLSession.shared.dataTask(with: url) { (data, res, err) in
                     if let data = data,
