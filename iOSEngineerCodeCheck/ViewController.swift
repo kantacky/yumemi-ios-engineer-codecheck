@@ -50,7 +50,7 @@ class ViewController: UITableViewController, UISearchBarDelegate {
                     }
                 }
             }
-            // Renew the list
+
             task?.resume()
         }
     }

@@ -19,6 +19,7 @@ class ViewController2: UIViewController {
     @IBOutlet weak var IssuesLabel: UILabel!
 
     var vc1: ViewController!
+    var task: URLSessionTask?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,19 +34,21 @@ class ViewController2: UIViewController {
         getImage()
     }
     
-    func getImage(){
+    func getImage() {
         let repo = vc1.repo[vc1.idx]
 
         TitleLabel.text = repo["full_name"] as? String
 
         if let owner = repo["owner"] as? [String: Any],
            let imgURL = owner["avatar_url"] as? String {
-            URLSession.shared.dataTask(with: URL(string: imgURL)!) { (data, res, err) in
+            task = URLSession.shared.dataTask(with: URL(string: imgURL)!) { (data, res, err) in
                 let img = UIImage(data: data!)!
                 DispatchQueue.main.async {
                     self.ImageView.image = img
                 }
-            }.resume()
+            }
+
+            task?.resume()
         }
     }
 }
