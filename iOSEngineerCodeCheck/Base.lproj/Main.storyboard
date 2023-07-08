@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wFt-RI-uk4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -11,7 +12,7 @@
         <!--Root View Controller-->
         <scene sceneID="0Yw-Vc-k2Q">
             <objects>
-                <tableViewController id="MOh-CZ-3ki" customClass="ViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="MOh-CZ-3ki" customClass="SearchBarViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fpt-Ev-QNW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,10 +63,10 @@
             </objects>
             <point key="canvasLocation" x="-498" y="137"/>
         </scene>
-        <!--View Controller2-->
+        <!--Repository View Controller-->
         <scene sceneID="JOC-74-7VT">
             <objects>
-                <viewController id="AHY-RL-7mG" customClass="ViewController2" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AHY-RL-7mG" customClass="RepositoryViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4gp-25-lRZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -155,7 +156,7 @@
             <objects>
                 <navigationController id="wFt-RI-uk4" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iRk-f0-Qkc">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
