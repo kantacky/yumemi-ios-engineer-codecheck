@@ -20,12 +20,12 @@ final class RepositoryViewModel {
         case getImageSucceed(image: UIImage?)
     }
 
-    private let repositoryModel: RepositoryModelProtocol
+    private let model: RepositoryModelProtocol
     private let output: PassthroughSubject<Output, Never> = .init()
     private var cancellables = Set<AnyCancellable>()
 
-    public init(repositoryModel: RepositoryModelProtocol = RepositoryModel()) {
-        self.repositoryModel = repositoryModel
+    public init(model: RepositoryModelProtocol = RepositoryModel()) {
+        self.model = model
     }
 
     func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<Output, Never> {
@@ -41,7 +41,7 @@ final class RepositoryViewModel {
     }
 
     func handleGetImage(url: URL) {
-        repositoryModel.getImage(url: url).sink { completion in
+        model.getImage(url: url).sink { completion in
             if case let .failure(error) = completion {
                 self.output.send(.getImageFail(error: error))
             }
