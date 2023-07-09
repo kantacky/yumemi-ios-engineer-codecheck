@@ -9,7 +9,7 @@
 import Combine
 import UIKit
 
-class RepositoryViewController: UIViewController {
+final class RepositoryViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -23,7 +23,7 @@ class RepositoryViewController: UIViewController {
     private let input: PassthroughSubject<RepositoryViewModel.Input, Never> = .init()
     private var subscriptions = Set<AnyCancellable>()
 
-    var searchBarViewController: SearchBarViewController!
+    var searchBarViewController: SearchViewController!
 
     override func viewDidLoad() {
         let repository = searchBarViewController.repositories[searchBarViewController.index]
