@@ -6,4 +6,21 @@
 //  Copyright © 2023 YUMEMI Inc. All rights reserved.
 //
 
-import Foundation
+import Combine
+import UIKit
+
+protocol RepositoryModelProtocol {
+    func getImage(url: URL) -> AnyPublisher<UIImage?, Error>
+}
+
+class RepositoryModel: RepositoryModelProtocol {
+
+    func getImage(url: URL) -> AnyPublisher<UIImage?, Error> {
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .catch { error in
+                return Fail(error: error).eraseToAnyPublisher()
+            }
+            .map({ UIImage(data: $0.data) })
+            .eraseToAnyPublisher()
+    }
+}
