@@ -27,6 +27,8 @@ final class SearchViewController: UITableViewController, UISearchBarDelegate {
         input.send(.viewDidLoad)
 
         searchBar.delegate = self
+        searchBar.autocapitalizationType = .none
+        searchBar.autocorrectionType = .no
     }
 
     private func bind() {
