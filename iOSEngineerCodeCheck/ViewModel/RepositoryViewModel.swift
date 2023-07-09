@@ -22,7 +22,7 @@ final class RepositoryViewModel {
 
     private let model: RepositoryModelProtocol
     private let output: PassthroughSubject<Output, Never> = .init()
-    private var cancellables = Set<AnyCancellable>()
+    private var cancellables: Set<AnyCancellable> = .init()
 
     public init(model: RepositoryModelProtocol = RepositoryModel()) {
         self.model = model

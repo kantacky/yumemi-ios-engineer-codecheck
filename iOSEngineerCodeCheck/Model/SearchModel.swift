@@ -10,18 +10,20 @@ import Combine
 import Foundation
 
 protocol SearchModelProtocol {
-    func getRepositories(url: URL) -> AnyPublisher<Repositories, Error>
+    func getRepositories(url: URL) -> AnyPublisher<[Repository], Error>
 }
 
 class SearchModel: SearchModelProtocol {
 
-    func getRepositories(url: URL) -> AnyPublisher<Repositories, Error> {
+    func getRepositories(url: URL) -> AnyPublisher<[Repository], Error> {
+        print(url.absoluteString)
         return URLSession.shared.dataTaskPublisher(for: url)
             .catch { error in
                 return Fail(error: error).eraseToAnyPublisher()
             }
             .map({ $0.data })
             .decode(type: Repositories.self, decoder: JSONDecoder())
+            .map({ $0.items })
             .eraseToAnyPublisher()
     }
 }
