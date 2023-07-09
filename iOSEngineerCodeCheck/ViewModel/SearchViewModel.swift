@@ -38,7 +38,7 @@ final class SearchViewModel {
         input.sink { [weak self] event in
             switch event {
             case .viewDidLoad:
-                self?.handleChangeText(newText: "GitHubのリポジトリを検索できるよー")
+                self?.handleChangeText(newText: "Search GitHub Repositories!!")
             case .onTappedSearchBar:
                 self?.handleChangeText(newText: "")
             case let .onChangedText(newText):

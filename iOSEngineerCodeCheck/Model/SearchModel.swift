@@ -16,7 +16,6 @@ protocol SearchModelProtocol {
 class SearchModel: SearchModelProtocol {
 
     func getRepositories(url: URL) -> AnyPublisher<[Repository], Error> {
-        print(url.absoluteString)
         return URLSession.shared.dataTaskPublisher(for: url)
             .catch { error in
                 return Fail(error: error).eraseToAnyPublisher()
