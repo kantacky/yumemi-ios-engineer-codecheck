@@ -113,16 +113,12 @@
 			children = (
 				BFD945DE244DC5E80012785A /* AppDelegate.swift */,
 				BFD945E0244DC5E80012785A /* SceneDelegate.swift */,
-				BFD945E2244DC5E80012785A /* SearchViewController.swift */,
-				F1F066EE2A5AAAE5003C8C1B /* SearchViewModel.swift */,
-				F1F066F02A5AAB08003C8C1B /* SearchModel.swift */,
-				BF0A658C244F2A3B00280FA6 /* RepositoryViewController.swift */,
-				F16385832A5982DD004A96D0 /* RepositoryViewModel.swift */,
-				F14A5C602A5A5F29004F369F /* RepositoryModel.swift */,
-				F1F066F22A5AB00D003C8C1B /* Repository.swift */,
 				BFD945E4244DC5E80012785A /* Main.storyboard */,
-				BFD945E7244DC5EB0012785A /* Assets.xcassets */,
 				BFD945E9244DC5EB0012785A /* LaunchScreen.storyboard */,
+				F1F066F52A5AB1B1003C8C1B /* View */,
+				F1F066F62A5AB1B9003C8C1B /* ViewModel */,
+				F1F066F42A5AB1A7003C8C1B /* Model */,
+				BFD945E7244DC5EB0012785A /* Assets.xcassets */,
 				BFD945EC244DC5EB0012785A /* Info.plist */,
 			);
 			path = iOSEngineerCodeCheck;
@@ -144,6 +140,34 @@
 				BFD94602244DC5EC0012785A /* Info.plist */,
 			);
 			path = iOSEngineerCodeCheckUITests;
+			sourceTree = "<group>";
+		};
+		F1F066F42A5AB1A7003C8C1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F1F066F22A5AB00D003C8C1B /* Repository.swift */,
+				F14A5C602A5A5F29004F369F /* RepositoryModel.swift */,
+				F1F066F02A5AAB08003C8C1B /* SearchModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F1F066F52A5AB1B1003C8C1B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF0A658C244F2A3B00280FA6 /* RepositoryViewController.swift */,
+				BFD945E2244DC5E80012785A /* SearchViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F1F066F62A5AB1B9003C8C1B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F16385832A5982DD004A96D0 /* RepositoryViewModel.swift */,
+				F1F066EE2A5AAAE5003C8C1B /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
