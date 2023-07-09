@@ -19,6 +19,7 @@
 		F14A5C612A5A5F29004F369F /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A5C602A5A5F29004F369F /* RepositoryModel.swift */; };
 		F16385842A5982DD004A96D0 /* RepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16385832A5982DD004A96D0 /* RepositoryViewModel.swift */; };
 		F1F066EF2A5AAAE5003C8C1B /* SearchBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F066EE2A5AAAE5003C8C1B /* SearchBarViewModel.swift */; };
+		F1F066F12A5AAB08003C8C1B /* SearchBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F066F02A5AAB08003C8C1B /* SearchBarModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		F14A5C602A5A5F29004F369F /* RepositoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
 		F16385832A5982DD004A96D0 /* RepositoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewModel.swift; sourceTree = "<group>"; };
 		F1F066EE2A5AAAE5003C8C1B /* SearchBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarViewModel.swift; sourceTree = "<group>"; };
+		F1F066F02A5AAB08003C8C1B /* SearchBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				BFD945E0244DC5E80012785A /* SceneDelegate.swift */,
 				BFD945E2244DC5E80012785A /* SearchBarViewController.swift */,
 				F1F066EE2A5AAAE5003C8C1B /* SearchBarViewModel.swift */,
+				F1F066F02A5AAB08003C8C1B /* SearchBarModel.swift */,
 				BF0A658C244F2A3B00280FA6 /* RepositoryViewController.swift */,
 				F16385832A5982DD004A96D0 /* RepositoryViewModel.swift */,
 				F14A5C602A5A5F29004F369F /* RepositoryModel.swift */,
@@ -274,6 +277,7 @@
 				BFD945E3244DC5E80012785A /* SearchBarViewController.swift in Sources */,
 				BF0A658D244F2A3B00280FA6 /* RepositoryViewController.swift in Sources */,
 				F16385842A5982DD004A96D0 /* RepositoryViewModel.swift in Sources */,
+				F1F066F12A5AAB08003C8C1B /* SearchBarModel.swift in Sources */,
 				F14A5C612A5A5F29004F369F /* RepositoryModel.swift in Sources */,
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
 				BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */,
