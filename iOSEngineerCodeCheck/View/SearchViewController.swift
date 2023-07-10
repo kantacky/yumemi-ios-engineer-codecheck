@@ -59,6 +59,11 @@ final class SearchViewController: UITableViewController, UISearchBarDelegate {
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         input.send(.onChangedText(newText: searchText))
+
+        if searchText.count == 0 {
+            self.repositories = []
+            self.tableView.reloadData()
+        }
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
