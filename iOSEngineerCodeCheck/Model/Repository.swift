@@ -19,7 +19,7 @@ struct Repository: Decodable {
    var name: String?
    var full_name: String?
    var `private`: Bool?
-   var owner: Owner
+   var owner: Owner?
    var html_url: String?
    var description: String?
    var fork: Bool?
@@ -83,7 +83,7 @@ struct Repository: Decodable {
    var archived: Bool?
    var disabled: Bool?
    var open_issues_count: Int?
-   var license: String?
+   var license: License?
    var allow_forking: Bool?
    var is_template: Bool?
    var web_commit_signoff_required: Bool?
@@ -93,7 +93,7 @@ struct Repository: Decodable {
    var open_issues: Int?
    var watchers: Int?
    var default_branch: String?
-   var score: Int?
+   var score: Double?
 }
 
 struct Owner: Decodable {
@@ -115,4 +115,12 @@ struct Owner: Decodable {
    var received_events_url: String?
    var type: String?
    var site_admin: Bool?
+}
+
+struct License: Decodable {
+    var key: String?
+    var name: String?
+    var spdx_id: String?
+    var url: String?
+    var node_id: String?
 }

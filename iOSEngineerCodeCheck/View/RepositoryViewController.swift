@@ -31,7 +31,8 @@ final class RepositoryViewController: UIViewController {
         super.viewDidLoad()
         self.bind()
 
-        if let urlString = repository.owner.avatar_url,
+        if let owner = repository.owner,
+           let urlString = owner.avatar_url,
            let url = URL(string: urlString) {
             input.send(.viewDidLoad(imageUrl: url))
         }
